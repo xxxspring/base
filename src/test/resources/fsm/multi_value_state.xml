@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fsm entry="state1">
+    <events>
+        <event name="evt1" title="evt1"/>
+    </events>
+
+    <state name="state1" title="state1">
+        <values>
+            <value1>value1</value1>
+            <value2>value2</value2>
+        </values>
+        <transitions>
+            <transition event="evt1" to="state2">
+                <handler id="mock_fsm_handler"/>
+                <handler id="mock_fsm_service"/>
+            </transition>
+        </transitions>
+    </state>
+
+    <state name="state2" title="state2">
+        <values>
+            <value1>value3</value1>
+            <value2>value4</value2>
+        </values>
+    </state>
+
+</fsm>
