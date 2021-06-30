@@ -6,7 +6,7 @@
 
     <groupId>io.github.xxxspring</groupId>
     <artifactId>base</artifactId>
-    <version>1.0.1.2</version>
+    <version>1.0.1.5</version>
     <description>基础组件</description>
     <name>base</name>
     <url>https://github.com/xxxspring/base</url>
@@ -27,6 +27,10 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
@@ -144,6 +148,10 @@
             <groupId>com.github.mongobee</groupId>
             <artifactId>mongobee</artifactId>
             <version>0.13</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-mongodb</artifactId>
         </dependency>
 
 <!--        redis-->
