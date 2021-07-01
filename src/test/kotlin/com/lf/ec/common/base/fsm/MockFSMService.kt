@@ -1,7 +1,7 @@
-package com.lf.ec.common.base.fsm
+package io.github.xxxspring.base.fsm
 
-import com.lf.ec.common.base.fsm.annotation.EnableFSMHandler
-import com.lf.ec.common.base.fsm.annotation.HandleTransition
+import io.github.xxxspring.base.fsm.annotation.EnableFSMHandler
+import io.github.xxxspring.base.fsm.annotation.HandleTransition
 import org.springframework.boot.test.context.TestComponent
 
 @TestComponent

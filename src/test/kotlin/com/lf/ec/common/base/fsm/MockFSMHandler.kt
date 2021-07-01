@@ -1,4 +1,4 @@
-package com.lf.ec.common.base.fsm
+package io.github.xxxspring.base.fsm
 
 import org.springframework.boot.test.context.TestComponent
 

@@ -1,4 +1,4 @@
-package com.lf.ec.common.base.fsm
+package io.github.xxxspring.base.fsm
 
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -13,7 +13,7 @@ import kotlin.test.assertNull
 
 @RunWith(SpringRunner::class)
 @SpringBootTest(classes = [FSMTest::class])
-@ComponentScan("com.lf.ec.common.base.fsm")
+@ComponentScan("io.github.xxxspring.base.fsm")
 class FSMTest {
 
     @Autowired

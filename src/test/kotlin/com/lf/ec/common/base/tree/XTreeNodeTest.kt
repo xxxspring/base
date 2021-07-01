@@ -1,4 +1,4 @@
-package com.lf.ec.common.base.tree
+package io.github.xxxspring.base.tree
 
 import org.junit.Test
 
