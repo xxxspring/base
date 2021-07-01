@@ -1,0 +1,3 @@
+spring.data.elasticsearch.custom:
+#  scheme: https
+
