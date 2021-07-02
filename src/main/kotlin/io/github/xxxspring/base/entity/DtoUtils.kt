@@ -1,6 +1,6 @@
 package io.github.xxxspring.base.entity
 
-import com.lf.mofan.common.api.common.dto.*
+import io.github.xxxspring.base.dto.*
 
 
 class DtoUtils {
