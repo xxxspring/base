@@ -6,7 +6,7 @@
 
     <groupId>io.github.xxxspring</groupId>
     <artifactId>base</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <description>基础组件</description>
     <name>base</name>
     <url>https://github.com/xxxspring/base</url>
