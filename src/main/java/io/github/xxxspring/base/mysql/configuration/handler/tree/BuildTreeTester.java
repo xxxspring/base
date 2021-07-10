@@ -1,4 +1,4 @@
-package io.github.xxxspring.base.mysql.handler.tree;
+package io.github.xxxspring.base.mysql.configuration.handler.tree;
 
 import java.util.ArrayList;
 import java.util.HashMap;

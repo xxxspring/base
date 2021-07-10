@@ -12,7 +12,7 @@ open class MongoProperties(
         var username: String? = null,
         var password: String? = null,
         var authenticationDatabase: String? = null,
-        var minConnectionsPerHost: Int? = 10,
-        var connectionsPerHost: Int? = 2,
+        var minConnectionsPerHost: Int? = 2,
+        var connectionsPerHost: Int? = 10,
         var migrationPackage: String? = null
 )

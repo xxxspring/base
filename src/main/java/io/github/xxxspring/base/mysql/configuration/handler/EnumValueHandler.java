@@ -1,4 +1,4 @@
-package io.github.xxxspring.base.mysql.handler;
+package io.github.xxxspring.base.mysql.configuration.handler;
 
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
