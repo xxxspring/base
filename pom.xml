@@ -6,7 +6,7 @@
 
     <groupId>io.github.xxxspring</groupId>
     <artifactId>base</artifactId>
-    <version>1.0.4.3</version>
+    <version>1.1.0.RELEASE</version>
     <description>基础组件</description>
     <name>base</name>
     <url>https://github.com/xxxspring/base</url>
@@ -277,9 +277,9 @@
                         <artifactId>maven-javadoc-plugin</artifactId>
                         <version>2.9.1</version>
                         <!--                        此配置处理 javadoc 找不到 JAVA_HOME 的问题-->
-                        <configuration>
-                            <javadocExecutable>/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/bin/javadoc</javadocExecutable>
-                        </configuration>
+<!--                        <configuration>-->
+<!--                            <javadocExecutable>/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home/bin/javadoc</javadocExecutable>-->
+<!--                        </configuration>-->
                         <executions>
                             <execution>
                                 <id>attach-javadocs</id>
