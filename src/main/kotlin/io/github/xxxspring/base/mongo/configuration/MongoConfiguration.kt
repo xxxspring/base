@@ -1,6 +1,5 @@
 package io.github.xxxspring.base.mongo.configuration
 
-import com.github.mongobee.Mongobee
 import com.mongodb.MongoClientOptions
 import com.mongodb.MongoClientSettings
 import com.mongodb.MongoCredential
@@ -22,39 +21,6 @@ open class MongoConfiguration {
     @Autowired
     lateinit var properties: MongoProperties
 
-    @Bean
-    @ConditionalOnProperty(value = ["spring.data.mongodb.custom.migrationPackage"])
-    open fun mongobee(): Mongobee {
-        val serverAddresses = properties.hosts?.asSequence()?.mapIndexed { index, s ->
-            ServerAddress(s, properties.ports!![index])
-        }?.toMutableList() ?: mutableListOf()
-
-        val credential =
-                if (!StringUtils.isEmpty(properties.username)) {
-                    MongoCredential.createCredential(
-                            properties.username!!,
-                            properties.authenticationDatabase ?: properties.database!!,
-                            properties.password!!.toCharArray()
-                    )
-                } else null
-
-        val options = MongoClientOptions
-                .builder()
-                .minConnectionsPerHost(properties.minConnectionsPerHost!!)
-                .connectionsPerHost(properties.connectionsPerHost!!)
-                .build()
-
-        val client = if (credential === null)
-            com.mongodb.MongoClient(serverAddresses, options)
-        else
-            com.mongodb.MongoClient(serverAddresses, credential, options)
-
-        val runner = Mongobee(client)
-        runner.setDbName(properties.database)
-        runner.setChangeLogsScanPackage(properties.migrationPackage)
-        return runner
-    }
-
     /**
      * https://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#mongo.mongo-db-factory-java
      */
@@ -62,17 +28,19 @@ open class MongoConfiguration {
     open fun mongoClient(): MongoClient {
         val serverAddresses = properties.hosts?.mapIndexed { index, s -> ServerAddress(s, properties.ports!![index]) }
         val clientSettings = MongoClientSettings.builder()
-                .applyToClusterSettings { it.hosts(serverAddresses) }
-                .applyToConnectionPoolSettings {
-                    it.maxSize(properties.connectionsPerHost!!).minSize(properties.minConnectionsPerHost!!)
-                }
+            .applyToClusterSettings { it.hosts(serverAddresses) }
+            .applyToConnectionPoolSettings {
+                it.maxSize(properties.connectionsPerHost!!).minSize(properties.minConnectionsPerHost!!)
+            }
 
         if (!StringUtils.isEmpty(properties.username)) {
-            clientSettings.credential(MongoCredential.createScramSha1Credential(
+            clientSettings.credential(
+                MongoCredential.createScramSha1Credential(
                     properties.username!!,
                     properties.authenticationDatabase ?: properties.database!!,
                     properties.password!!.toCharArray()
-            ))
+                )
+            )
         }
         return MongoClients.create(clientSettings.build())
     }
@@ -89,18 +57,20 @@ open class MongoConfiguration {
     open fun mongoClientFactoryBean(): MongoClientFactoryBean {
         val serverAddresses = properties.hosts?.mapIndexed { index, s -> ServerAddress(s, properties.ports!![index]) }
         val credentials = if (!StringUtils.isEmpty(properties.username)) {
-            listOf(MongoCredential.createScramSha1Credential(
+            listOf(
+                MongoCredential.createScramSha1Credential(
                     properties.username!!,
                     properties.authenticationDatabase ?: properties.database!!,
                     properties.password!!.toCharArray()
-            ))
+                )
+            )
         } else {
             listOf()
         }
         val options = MongoClientOptions.builder()
-                .minConnectionsPerHost(properties.minConnectionsPerHost!!)
-                .connectionsPerHost(properties.connectionsPerHost!!)
-                .build()
+            .minConnectionsPerHost(properties.minConnectionsPerHost!!)
+            .connectionsPerHost(properties.connectionsPerHost!!)
+            .build()
 
         val mongo = MongoClientFactoryBean()
         mongo.setMongoClientOptions(options)

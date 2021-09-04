@@ -6,13 +6,12 @@ import org.springframework.context.annotation.Configuration
 @Configuration
 @ConfigurationProperties(prefix = "spring.data.mongodb.custom")
 open class MongoProperties(
-        var database: String? = null,
-        var hosts: List<String>? = null,
-        var ports: List<Int>? = null,
-        var username: String? = null,
-        var password: String? = null,
-        var authenticationDatabase: String? = null,
-        var minConnectionsPerHost: Int? = 2,
-        var connectionsPerHost: Int? = 10,
-        var migrationPackage: String? = null
+    var database: String? = null,
+    var hosts: List<String>? = null,
+    var ports: List<Int>? = null,
+    var username: String? = null,
+    var password: String? = null,
+    var authenticationDatabase: String? = null,
+    var minConnectionsPerHost: Int? = 2,
+    var connectionsPerHost: Int? = 10
 )
